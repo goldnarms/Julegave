@@ -1,0 +1,430 @@
+$icon-font-path: '../fonts/';
+
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+  font-size: 18px;
+  background-color: #e74c3c;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+$red: #C21F1F;
+$green: #063;
+
+$size: 200px;
+$skewFactor: 1.03527618041;
+
+@mixin ribbon($col, $to: right) {
+  background: linear-gradient(to $to, $col, $col 42%, $green 42%, $green 58%,  $col 58%);
+}
+
+%side {
+  box-sizing: border-box;
+  content: "";
+  display: inline-block;
+  height: $size;
+  width: $size*0.7;
+}
+
+%left-side {
+  transform: skewY(15deg) translateZ(0);
+  transform-origin: 0 100%;
+}
+
+%right-side {
+  transform: skewY(-15deg) translateZ(0);
+  transform-origin: 100% 0;
+}
+
+.lid {
+  position: absolute;
+  bottom: 100%;
+  transform: translateY(0%) translateZ(0);
+  transition: transform 1.5s, .5s opacity .2s;
+  margin: 0  (-$size*0.025) (-$size*0.2);
+  z-index: 100;
+  
+  .is-open & {
+    transform: translateY(-200%) translateZ(0);
+    opacity: 0;
+    transition: transform 1.5s, .75s opacity .5s;
+    pointer-events: none;
+  }
+}
+
+.lid-top {
+  width: ($size*0.725)*$skewFactor;
+  height: (($size*0.725)*$skewFactor)/2;
+  background: linear-gradient(to bottom, transparent, transparent 42%, $green 42%, $green 58%,  transparent 58%), linear-gradient(to right, $red, $red 42%, $green 42%, $green 58%,  $red 58%);
+  transform: rotate(15deg) skewX(-60deg) translateZ(0);
+  transform-origin: 0% 100%;
+  -webkit-filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+  z-index: 110;
+}
+
+.lid-sides {
+  z-index: 105;
+  
+  &:before,
+  &:after{
+    content: "";
+    display: inline-block;
+    height: $size*0.2;
+    width: $size*0.725;
+    @include ribbon($red);
+    -webkit-filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+  }
+  
+  &:before {
+    @extend %left-side;
+  }
+  &:after {
+    @extend %right-side;
+  }
+}
+
+.present {
+  position: relative;
+  z-index: 50;
+  font-size: 0;
+  
+  &:before,
+  &:after{
+    position: realtive;
+    z-index: 40;
+    @extend %side;
+    @include ribbon($red);
+    -webkit-filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+  }
+  
+  &:before {
+    @extend %left-side;
+  }
+  &:after {
+    @extend %right-side;
+  }
+}
+
+.present-inner {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+    
+  &:before,
+  &:after{
+    @extend %side;
+    background: darken($red, 7%);
+  }
+  
+  &:before {
+    @extend %right-side;
+    transform-origin: 0 100%;
+    border-right: 1px solid darken($red, 14%);
+  }
+  &:after {
+    @extend %left-side;
+    transform-origin: 100% 0;
+  }
+}
+
+.prize {
+  z-index: -1;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  left: 15px;
+  opacity: 0;
+  transition: top 1s, .5s opacity .5s;
+    
+  .is-open & {
+    height: auto;
+    top: -215px;
+    opacity: 1;
+    transition: 1.5s top .1s, .5s opacity .25s;
+  }
+  
+  > img {
+    position: relative;
+  }
+}
+
+.starburst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: (-$size*.8)/4;
+  margin-left: (-$size*.8)/2;
+  animation: spin 10s infinite linear;
+  
+  &, &:before, &:after {
+    height: $size*.8;
+    width: $size*.8;
+    background: -webkit-radial-gradient(center, ellipse, rgba(255, 215, 0, 0.5) 0%, transparent 100%) no-repeat 50% 125%;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    content: "";
+    display: block;
+  }
+
+  &:before {
+    -webkit-transform: rotate(30deg);
+  }
+
+  &:after {
+    -webkit-transform: rotate(60deg);
+  }
+}
+
+/* Crap */
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  position: relative;
+  background: silver;
+  color: #333;
+  border: 0 none;
+  padding: .5em;
+  font-family: Geogria;
+  font-weight: bold;
+  font-size: 2em;
+  width: $size*.7*1.5;
+  margin: 0 ($size*.7)/4;
+  z-index: 10000;
+  border-radius: 5px;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+  transition: .25s;
+  outline: none; // should style appropriately instead
+  
+  &:active {
+    transform: translateY(2px) translateZ(0);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) translateZ(0);
+  }
+  100% {
+    transform: rotate(360deg) translateZ(0);
+  }
+}
+
+.layer {
+  width: 100%;
+  height: 100%;
+}
+
+ul img {
+  display: block;
+  margin: 0;
+ 
+}
+
+.container {
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+}
+
+.scene {
+  padding: 0;
+  margin: 0;
+}
+
+.giftbox {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  top: 150px;
+  left: 15px;
+  background-image: url(https://lh4.googleusercontent.com/-tJs9cts4fHQ/VFDreQq-FNI/AAAAAAAADnc/OFB3lXCD5D4/s695-no/snowflake.png);
+  background-size: 100%;
+}
+
+.giftbox::after {
+  content: '';
+  position: absolute;
+  color: #fff;
+  width: 100%;
+  font-size: 24px;
+  z-index: 1;
+}
+
+h1 {
+  margin: 120px 20px 0 0;
+  color: white;
+  font-size: 42pt;
+  font-family: "Pacifico";
+  text-align: center;
+}
+
+#snowfall {
+  z-index: 1;
+  position: absolute;
+}
+
+#im {
+  padding-right: 970px;
+}
+
+#im1 {
+  padding-left: 970px;
+  position: absolute;
+  z-index: 1;
+}
+
+#im2 {
+  padding-left: 1940px;
+  position: absolute;
+  z-index: 1;
+}
+
+#im3 {
+  padding-left: 2910px;
+  position: absolute;
+  z-index: 1;
+}
+
+#im4 {
+  padding-left: 3880px;
+  position: absolute;
+  z-index: 1;
+}
+
+#im5 {
+  padding-left: 4850px;
+  position: absolute;
+  z-index: 1;
+}
+
+#im6 {
+  padding-left: 5820px;
+  position: absolute;
+  z-index: 1;
+}
+
+.scene {
+  margin: 185px 0 0 0;
+}
+
+.can {
+  padding: 1px;
+}
+
+.song img {
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  top: 203px;
+  left: 13px;
+}
+
+@media screen and (max-width: 502px) {
+  
+  .giftbox {
+  top: 20px;
+  left: 20px;
+ }    
+  
+  .song img {
+  top: 20px;
+  left: 62px;
+}
+  
+}

@@ -1,0 +1,122 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>christmaspresent</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+      <link href="http://vjs.zencdn.net/5.8.8/video-js.css" rel="stylesheet">
+      <link href="cdn.rawgit.com/noelboss/featherlight/1.6.1/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+  <!-- If you'd like to support IE8 -->
+  <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+  </head>
+  <body>
+    	<header>
+		<div class="can"> <canvas id="snowfall"></canvas></div>
+		</header>	
+    		<nav>
+			<div id="merrywrap" class="merrywrap">
+			<div class="giftbox"></div></div>
+				<div class="song">	
+				<img src="https://lh6.googleusercontent.com/-Pv2Qe3P7aiI/VFDref9o8FI/AAAAAAAADnY/Q6Uz-VITFqE/s35-no/song.png" alt="Play Button" onclick="StartOrStop('music/songs.mp3')">
+				<audio id="song_a"></audio>
+				</div>
+		</nav>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+	<section>	
+		<h1>Happy Holiday</h1>
+		<div id="container" class="container">
+			<ul id="scene" class="scene">
+				<li class="layer" id="im"data-depth="1.00"><img src="https://lh6.googleusercontent.com/yPorobiMR-qjKyg8JHJYDiqwwwMO3Z2_VUvCayMyTw=w973-h384-no"></li>
+				<li class="layer" id="im1" data-depth="1.00"><img src="https://lh6.googleusercontent.com/yPorobiMR-qjKyg8JHJYDiqwwwMO3Z2_VUvCayMyTw=w973-h384-no"></li>
+				<li class="layer" id="im2" data-depth="1.00"><img src="https://lh6.googleusercontent.com/yPorobiMR-qjKyg8JHJYDiqwwwMO3Z2_VUvCayMyTw=w973-h384-no"></li>
+				<li class="layer" id="im3" data-depth="1.00"><img src="https://lh6.googleusercontent.com/yPorobiMR-qjKyg8JHJYDiqwwwMO3Z2_VUvCayMyTw=w973-h384-no"></li>
+				<li class="layer" id="im4" data-depth="1.00"><img src="https://lh6.googleusercontent.com/yPorobiMR-qjKyg8JHJYDiqwwwMO3Z2_VUvCayMyTw=w973-h384-no"></li>
+				<li class="layer" id="im5" data-depth="1.00"><img src="https://lh6.googleusercontent.com/yPorobiMR-qjKyg8JHJYDiqwwwMO3Z2_VUvCayMyTw=w973-h384-no"></li>
+				<li class="layer" id="im6" data-depth="1.00"><img src="https://lh6.googleusercontent.com/yPorobiMR-qjKyg8JHJYDiqwwwMO3Z2_VUvCayMyTw=w973-h384-no"></li>
+			</ul>
+		</div>
+	</section>
+<div class="present open">
+  <div class="lid">
+    <div class="lid-top"></div>
+    <div class="lid-sides"></div>
+  </div>
+  <div class="present-inner"></div>
+  <div class="prize">
+    <div class="starburst"></div>
+    <!--<img src="http://i.imgur.com/Ke1zbOO.png" alt />-->
+
+  </div>
+</div>
+
+<div id="mylightbox">
+        <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+  poster="http://i.imgur.com/Ke1zbOO.png" data-setup="{}">
+    <source src="video/sample.mp4" type='video/mp4'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+  </div>
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
