@@ -170,11 +170,43 @@ $skewFactor: 1.03527618041;
   }
 }
 
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  margin: 20px auto;
+}
+
+#present-container{
+    padding-top: 80px;
+     position: relative; 
+     text-align: center; 
+     width: 280px; 
+     margin-left: calc(50% - 150px);
+
+}
+.mfp-content{
+    width: 100%;
+    height: 100%;
+
+}
+
+#my-video{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#popup{
+    width: 100%;
+    height: 100%;
+
+}
+
 .present {
   position: relative;
   z-index: 50;
   font-size: 0;
-  
   &:before,
   &:after{
     position: realtive;
@@ -196,7 +228,6 @@ $skewFactor: 1.03527618041;
   z-index: -1;
   position: absolute;
   top: 0;
-    
   &:before,
   &:after{
     @extend %side;
