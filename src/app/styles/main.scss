@@ -179,7 +179,7 @@ $skewFactor: 1.03527618041;
 }
 
 #present-container{
-    padding-top: 80px;
+    padding-top: 110px;
      position: relative; 
      text-align: center; 
      width: 280px; 
@@ -378,7 +378,7 @@ ul img {
 }
 
 h1 {
-  margin: 120px 20px 0 0;
+  margin-top: 15%;
   color: white;
   font-size: 42pt;
   font-family: "Pacifico";
@@ -458,4 +458,37 @@ h1 {
   left: 62px;
 }
   
+}
+
+.mfp-fade.mfp-bg {
+  opacity: 0;
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+  opacity: 0.8;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+  opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+  opacity: 0;
+
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
 }

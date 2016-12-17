@@ -1,26 +1,36 @@
-var video = $('#my_video');
+$(document)
+    .ready(function () {
+        var video = $('#my_video');
+        video.on('click',
+    function (e) {
+        var vid = video[0];
+        vid.play();
+        if (vid.requestFullscreen) {
+            vid.requestFullscreen();
+        } else if (vid.mozRequestFullScreen) {
+            vid.mozRequestFullScreen();
+        } else if (vid.webkitRequestFullscreen) {
+            vid.webkitRequestFullscreen();
+        }
+    });
+    });
+
 $('.open').on('click', function (e) {
     e.preventDefault();
     $('.present').toggleClass('is-open');
-    $.magnificPopup.open({
-        items: {
-            src: '#popup',
-            type: 'inline'
-        }
-    });
 
-    video.on('click',
-        function(e) {
-            var vid = video[0];
-            vid.play();
-            if (vid.requestFullscreen) {
-                vid.requestFullscreen();
-            } else if (vid.mozRequestFullScreen) {
-                vid.mozRequestFullScreen();
-            } else if (vid.webkitRequestFullscreen) {
-                vid.webkitRequestFullscreen();
-            }
-        });
+    if ($('.present').hasClass('is-open')) {
+        setTimeout(function() {
+                $.magnificPopup.open({
+                    mainClass: 'mfp-fade',
+                    items: {
+                        src: '#popup',
+                        type: 'inline'
+                    }
+                });
+            },
+            1500);
+    }
 });
 
 //============================================================
